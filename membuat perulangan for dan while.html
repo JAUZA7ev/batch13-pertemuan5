@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 5</title>
+    <style>
+        * {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        button {
+            height: 30px;
+            width: 10%;
+            color: blue ;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .apa {
+            display: flex
+        }
+
+        #hasil {
+            text-align: center;
+            margin-left: 25%;
+            margin-top: 10px;
+            line-height: 40px;  
+        }
+
+        #hasel {
+            text-align: center ;
+            margin-left: 25%;
+            margin-top: 10px;
+            line-height: 29px;
+        }
+    </style>
+</head>
+<body>
+    <form >
+    <label for="kata_kata_sakti"><b>Pesan :</b></label>
+    <input type="text" id="kata_kata_sakti" required placeholder="Masukan pesan anda"/> <br/>
+    <label for="berapa_kali" ><b>Berapa kali :</b> </label>
+    <input type="number" id="berapa_kali" required placeholder="Masukan berapa x"/> <br/><br>
+</form>
+    
+    <button onclick="main();" type="menu"><b>Cetak!</b></button> <br/><br/>
+
+
+    <hr/>
+    <section class="apa">
+        <div id="hasil"></div>
+        <div id="hasel"></div>
+    </section>
+
+    
+    <script>
+        function cetakKataSakti () {
+            let kata_kata_sakti = document.getElementById('kata_kata_sakti').value;
+            let berapa_kali = document.getElementById('berapa_kali').value;
+            let hasil = document.getElementById('hasil').value;
+            let tampung = '';
+
+            for (let i = 0; i < berapa_kali; i++) {
+                tampung += `${i+1}. ${kata_kata_sakti}<br/>`;
+            }
+            document.getElementById('hasil').innerHTML = tampung;
+        }
+
+        function cetakKataSaktiV2 () {
+            let kata_kata_sakti = document.getElementById('kata_kata_sakti').value;
+            let berapa_kali = document.getElementById('berapa_kali').value;
+            let tampung = '';
+
+            let i = 0;
+            while (i < berapa_kali) {
+                tampung += `<li><li${i+1}/> ${kata_kata_sakti}`;
+                i++;
+            }
+
+            document.getElementById('hasel').innerHTML = tampung ;
+            
+
+        }
+
+        function main(){
+            cetakKataSakti();
+            cetakKataSaktiV2();
+        }
+
+    </script>
+
+</body>
+</html>
